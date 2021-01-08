@@ -1,0 +1,10 @@
+# This file tracks properties of this Flutter project.
+# Used by Flutter tool to assess capabilities and perform upgrades etc.
+#
+# This file should be version controlled and should not be manually edited.
+
+version:
+  revision: 1aae8597299dd94c1556456315b4e3c6eea44829
+  channel: text-input-channel-connection
+
+project_type: plugin
