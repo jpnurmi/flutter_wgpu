@@ -17,6 +17,7 @@ dev_dependencies:
   ffigen: ^2.0.0-nullsafety.0
   flutter_test:
     sdk: flutter
+  pedantic: ^1.10.0-nullsafety.3
 
 flutter:
   plugin:
