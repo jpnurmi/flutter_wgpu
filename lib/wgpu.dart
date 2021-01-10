@@ -1,6 +1,2 @@
-import 'src/bindings.dart';
-import 'src/dylib.dart';
+export 'package:wgpu_ffi/wgpu_ffi.dart';
 
-class WebGPU {
-  static LibWGPU get lib => dylib;
-}
