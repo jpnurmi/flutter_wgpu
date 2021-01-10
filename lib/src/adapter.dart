@@ -1,6 +1,6 @@
-import 'package:wgpu_ffi/wgpu_ffi.dart' as ffi;
+import 'dart:async';
 
-export 'package:wgpu_ffi/wgpu_ffi.dart' show AdapterInfo, Limits;
+import 'package:wgpu_ffi/wgpu_ffi.dart' as ffi;
 
 class Adapter {
   final int _id;
@@ -8,6 +8,22 @@ class Adapter {
   ffi.Limits? _limits;
 
   Adapter(this._id);
+
+  static Future<Adapter> request({
+    ffi.PowerPreference? powerPreference,
+    int? backends,
+  }) async {
+    final c = Completer<Adapter>();
+    ffi.wgpu_request_adapter_async(
+      ffi.RequestAdapterOptions(
+        powerPreference: powerPreference ?? ffi.PowerPreference.defaultPower,
+      ),
+      backends ?? ffi.Backend.empty,
+      true,
+      (int id) => c.complete(Adapter(id)),
+    );
+    return c.future;
+  }
 
   int get id => _id;
 
