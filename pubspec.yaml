@@ -10,8 +10,8 @@ environment:
   flutter: ">=1.20.0"
 
 dependencies:
-  wgpu_ffi: #^0.0.0-nullsafety.0
-    path: ../../dart/dart_wgpu_ffi
+  wgpu_ffi:
+    git: https://github.com/jpnurmi/dart_wgpu_ffi.git
   flutter:
     sdk: flutter
 
