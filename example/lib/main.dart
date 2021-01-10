@@ -11,6 +11,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Adapter? _adapter;
+
+  @override
+  void initState() {
+    super.initState();
+    initWgpu();
+  }
+
+  void initWgpu() async {
+    final adapter = await Adapter.request();
+    setState(() => _adapter = adapter);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +32,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Flutter WebGPU'),
         ),
         body: Center(
-          child: Text('Hello, world!'),
+          child: Text('${_adapter?.toString()} (${_adapter?.id})'),
         ),
       ),
     );
