@@ -105,7 +105,7 @@ packages:
       name: dylib
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0-nullsafety.0"
+    version: "0.2.1-nullsafety.0"
   fake_async:
     dependency: transitive
     description:
@@ -388,13 +388,13 @@ packages:
       relative: true
     source: path
     version: "0.0.0"
-  wgpu_ffi:
+  wgpu_native:
     dependency: transitive
     description:
       path: "."
       ref: HEAD
-      resolved-ref: dd0319a91dfb9ee2a1e0be3a8b374a9679c30c91
-      url: "https://github.com/jpnurmi/dart_wgpu_ffi.git"
+      resolved-ref: "593313c3fc27c481fe46ad79016c09fc33d18940"
+      url: "https://github.com/jpnurmi/wgpu-native.dart"
     source: git
     version: "0.0.0"
   yaml:

@@ -1,23 +1,23 @@
-import 'package:wgpu_ffi/wgpu_ffi.dart' as ffi;
+import 'package:wgpu_native/wgpu_native.dart' as n;
 
 import 'device.dart';
 
 class Adapter {
   final int _id;
-  ffi.AdapterInfo? _info;
-  ffi.Limits? _limits;
+  n.AdapterInfo? _info;
+  n.Limits? _limits;
 
   Adapter(this._id);
 
   int get id => _id;
 
-  int get features => ffi.wgpu_adapter_features(_id);
+  int get features => n.wgpu_adapter_features(_id);
 
-  ffi.AdapterInfo get info => _info ??= ffi.wgpu_adapter_get_info(_id);
+  n.AdapterInfo get info => _info ??= n.wgpu_adapter_get_info(_id);
 
-  ffi.Limits get limits => _limits ??= ffi.wgpu_adapter_limits(_id);
+  n.Limits get limits => _limits ??= n.wgpu_adapter_limits(_id);
 
-  void destroy() => ffi.wgpu_adapter_destroy(_id);
+  void destroy() => n.wgpu_adapter_destroy(_id);
 
   void dispose() {
     _info?.dispose();
@@ -26,14 +26,14 @@ class Adapter {
 
   Device requestDevice({
     int? features,
-    ffi.Limits? limits,
+    n.Limits? limits,
     bool? sharedValidation,
     String? tracePath,
   }) {
-    return Device(ffi.wgpu_adapter_request_device(
+    return Device(n.wgpu_adapter_request_device(
       _id,
       features ?? 0,
-      limits ?? ffi.Limits(),
+      limits ?? n.Limits(),
       sharedValidation ?? false,
       tracePath ?? '',
     ));

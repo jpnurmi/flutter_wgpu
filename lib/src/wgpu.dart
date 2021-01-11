@@ -1,20 +1,20 @@
 import 'dart:async';
 
-import 'package:wgpu_ffi/wgpu_ffi.dart' as ffi;
+import 'package:wgpu_native/wgpu_native.dart' as n;
 
 import 'adapter.dart';
 
 class WGPU {
   static Future<Adapter> requestAdapter({
-    ffi.PowerPreference? powerPreference,
+    n.PowerPreference? powerPreference,
     int? backends,
   }) async {
     final c = Completer<Adapter>();
-    ffi.wgpu_request_adapter_async(
-      ffi.RequestAdapterOptions(
-        powerPreference: powerPreference ?? ffi.PowerPreference.defaultPower,
+    n.wgpu_request_adapter_async(
+      n.RequestAdapterOptions(
+        powerPreference: powerPreference ?? n.PowerPreference.defaultPower,
       ),
-      backends ?? ffi.Backend.empty,
+      backends ?? n.Backend.empty,
       true,
       (int id) => c.complete(Adapter(id)),
     );

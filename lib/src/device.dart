@@ -1,18 +1,18 @@
-import 'package:wgpu_ffi/wgpu_ffi.dart' as ffi;
+import 'package:wgpu_native/wgpu_native.dart' as n;
 
 class Device {
   final int _id;
-  ffi.Limits? _limits;
+  n.Limits? _limits;
 
   Device(this._id);
 
   int get id => _id;
 
-  int get features => ffi.wgpu_device_features(_id);
+  int get features => n.wgpu_device_features(_id);
 
-  ffi.Limits get limits => _limits ??= ffi.wgpu_device_limits(_id);
+  n.Limits get limits => _limits ??= n.wgpu_device_limits(_id);
 
-  void destroy() => ffi.wgpu_device_destroy(_id);
+  void destroy() => n.wgpu_device_destroy(_id);
 
   void dispose() => _limits?.dispose();
 }
