@@ -27,8 +27,6 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} WGPU_BUILD_TYPE)
 set(WGPU_LIB_DIR "${WGPU_DIR}/${WGPU_ARCH}/${WGPU_BUILD_TYPE}")
 set(WGPU_LIB "${WGPU_LIB_DIR}/${WGPU_LIB_NAME}")
 
-target_link_libraries(${PLUGIN_NAME} PRIVATE ${WGPU_LIB})
-
 # List of absolute paths to libraries that should be bundled with the plugin
 set(wgpu_bundled_libraries
   ${WGPU_LIB}
