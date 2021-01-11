@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Adapter? _adapter;
+  Device? _device;
 
   @override
   void initState() {
@@ -20,8 +21,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   void initWgpu() async {
-    final adapter = await Adapter.request();
-    setState(() => _adapter = adapter);
+    final adapter = await WGPU.requestAdapter();
+    //final device = adapter.requestDevice();
+    setState(() {
+      _adapter = adapter;
+      //_device = device;
+    });
   }
 
   @override
@@ -32,7 +37,13 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Flutter WebGPU'),
         ),
         body: Center(
-          child: Text('${_adapter?.toString()} (${_adapter?.id})'),
+          child: Column (
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Adapter: ${_adapter?.toString()} (${_adapter?.id})'),
+              Text('Device: ${_device?.toString()} (${_device?.id})'),
+            ],
+          ),
         ),
       ),
     );

@@ -393,7 +393,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: e0145d67d78257bdd6e6bf9f2ca38b8afeb62a51
+      resolved-ref: dd0319a91dfb9ee2a1e0be3a8b374a9679c30c91
       url: "https://github.com/jpnurmi/dart_wgpu_ffi.git"
     source: git
     version: "0.0.0"
