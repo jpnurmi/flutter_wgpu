@@ -17,8 +17,15 @@ target_include_directories(${PLUGIN_NAME} INTERFACE
   "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter flutter_wrapper_plugin)
 
+set(WGPU_LIB_NAME "wgpu_native.dll")
+set(WGPU_DIR "${CMAKE_CURRENT_SOURCE_DIR}/wgpu")
+set(WGPU_ARCH ${MSVC_CXX_ARCHITECTURE_ID})
+set(WGPU_BUILD_TYPE "$<$<CONFIG:Debug>:debug>$<$<CONFIG:Release>:release>")
+set(WGPU_LIB_DIR "${WGPU_DIR}/${WGPU_ARCH}/${WGPU_BUILD_TYPE}")
+set(WGPU_LIB "${WGPU_LIB_DIR}/${WGPU_LIB_NAME}")
+
 # List of absolute paths to libraries that should be bundled with the plugin
 set(wgpu_bundled_libraries
-  ""
+  "${WGPU_LIB}"
   PARENT_SCOPE
 )
