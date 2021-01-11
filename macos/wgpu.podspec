@@ -14,6 +14,10 @@ A new flutter plugin project.
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
+  ### TODO:
+  # - debug vs. release
+  # - vendored_libraries without linking?
+  s.resources        = 'wgpu/release/libwgpu_native.dylib'
   s.dependency 'FlutterMacOS'
 
   s.platform = :osx, '10.11'
