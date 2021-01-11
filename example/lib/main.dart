@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Flutter WebGPU'),
         ),
         body: Center(
-          child: Column (
+          child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('Adapter: ${_adapter?.toString()} (${_adapter?.id})'),
